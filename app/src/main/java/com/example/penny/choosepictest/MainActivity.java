@@ -1,6 +1,7 @@
 package com.example.penny.choosepictest;
 
 import android.annotation.TargetApi;
+import android.app.Activity;
 import android.content.ContentUris;
 import android.content.Intent;
 import android.database.Cursor;
@@ -12,7 +13,6 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -22,14 +22,14 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
     public static final int TAKE_PHOTO= 1;
     public static final int CROP_PHOTO =2;
     private Button takePhoto;
     private ImageView picture;
     private Uri imageUri;
     public static final int CHOOSE_PHOTO = 3;
-    private Button chooseFromAlbum;
+    private Button chooseFromAlbum ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         takePhoto = (Button) findViewById(R.id.take_photo);//获得Button实例
         picture = (ImageView) findViewById(R.id.picture);//获得ImageView实例
+        chooseFromAlbum = (Button) findViewById(R.id.choose_from_album);
         takePhoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
